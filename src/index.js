@@ -1,5 +1,5 @@
 module.exports = function(schema, option) {
-  const {prettier} = option;
+  const {_, prettier} = option;
 
   // imports
   const imports = [];
@@ -13,8 +13,17 @@ module.exports = function(schema, option) {
   // Classes 
   const classes = [];
 
+  // 组件的states
+  const renderStates = {};
+
   // 1vw = width / 100
-  const _w = option.responsive.width / 100;
+  const _w = 750/schema.rect.width;
+  console.log('_w: ', _w);
+
+  // 如果组件配置了属性responsive==vw，则返回true
+  const isResponsiveVW = () => {
+    return schema.props.responsive == 'vw';
+  }
 
   const isExpression = (value) => {
     return /^\{\{.*\}\}$/.test(value);
@@ -40,7 +49,7 @@ module.exports = function(schema, option) {
     return String(value);
   };
 
-  // convert to responsive unit, such as vw
+  // convert to responsive unit, such as rpx
   const parseStyle = (style) => {
     for (let key in style) {
       switch (key) {
@@ -66,7 +75,13 @@ module.exports = function(schema, option) {
         case 'borderTopRightRadius':
         case 'borderTopLeftRadius':
         case 'borderRadius':
-          style[key] = (parseInt(style[key]) / _w).toFixed(2) + 'vw';
+          // style[key] = (parseInt(style[key]) * 100 / (_w*750)).toFixed(2) + 'vw';
+          // 如果组件配置了属性responsive==vw，那么使用vw单位.
+          if (isResponsiveVW()) {
+            style[key] = ((parseInt(style[key]) * _w * 100)/750).toFixed(2) + 'vw';
+          } else  {
+            style[key] = 'Taro.pxTransform(' + (parseInt(style[key]) * _w).toFixed(0) + ')px';
+          }
           break;
       }
     }
@@ -186,7 +201,7 @@ module.exports = function(schema, option) {
 
     // add loop key
     const tagEnd = render.match(/^<.+?\s/)[0].length;
-    render = `${render.slice(0, tagEnd)} key={${loopArgIndex}}${render.slice(tagEnd)}`;
+    // render = `${render.slice(0, tagEnd)} key={${loopArgIndex}}${render.slice(tagEnd)}`;
 
     // remove `this` 
     const re = new RegExp(`this.${loopArgItem}`, 'g')
@@ -201,10 +216,10 @@ module.exports = function(schema, option) {
   const generateRender = (schema) => {
     const type = schema.componentName.toLowerCase();
     const className = schema.props && schema.props.className;
-    const classString = className ? ` style={styles.${className}}` : '';
+    const classString = className ? ` style={styles.${_.camelCase(className)}}` : '';
 
     if (className) {
-      style[className] = parseStyle(schema.props.style);
+      style[_.camelCase(className)] = parseStyle(schema.props.style);
     }
 
     let xml;
@@ -219,19 +234,30 @@ module.exports = function(schema, option) {
     switch(type) {
       case 'text':
         const innerText = parseProps(schema.props.text, true);
-        xml = `<span${classString}${props}>${innerText}</span>`;
+        renderStates[_.camelCase(schema.props.className)] = innerText;
+        xml = `<Text${classString}${props}>{this.state.${_.camelCase(schema.props.className)}}</Text>`;
         break;
       case 'image':
         const source = parseProps(schema.props.src);
-        xml = `<img${classString}${props} src={${source}} />`;
+        renderStates[_.camelCase(schema.props.className)] = source;
+        xml = `<Image${classString}${props} src={this.state.${_.camelCase(schema.props.className)}} />`;
         break;
       case 'div':
       case 'page':
       case 'block':
+        // if (schema.props['hm-component']) {
+        //   xml = `<View class="${schema.props.className}">{"hm-component=${schema.props['hm-component']}"}</View>`
+        // } else {
+        //   if (schema.children && schema.children.length) {
+        //     xml = `<View${classString}${props}>${transform(schema.children)}</View>`;
+        //   } else {
+        //     xml = `<View${classString}${props} />`;
+        //   }
+        // }
         if (schema.children && schema.children.length) {
-          xml = `<div${classString}${props}>${transform(schema.children)}</div>`;
+          xml = `<View${classString}${props}>${transform(schema.children)}</View>`;
         } else {
-          xml = `<div${classString}${props} />`;
+          xml = `<View${classString}${props} />`;
         }
         break;
     }
@@ -267,7 +293,6 @@ module.exports = function(schema, option) {
         const methods = [];
         const init = [];
         const render = [`render(){ return (`];
-        let classData = [`class ${schema.componentName}_${classes.length} extends Component {`];
 
         if (schema.state) {
           states.push(`state = ${toString(schema.state)}`);
@@ -280,22 +305,22 @@ module.exports = function(schema, option) {
           });
         }
 
-        if (schema.dataSource && Array.isArray(schema.dataSource.list)) {
-          schema.dataSource.list.forEach((item) => {
-            if (typeof item.isInit === 'boolean' && item.isInit) {
-              init.push(`this.${item.id}();`)
-            } else if (typeof item.isInit === 'string') {
-              init.push(`if (${parseProps(item.isInit)}) { this.${item.id}(); }`)
-            }
-            methods.push(parseDataSource(item));
-          });
+        // if (schema.dataSource && Array.isArray(schema.dataSource.list)) {
+        //   schema.dataSource.list.forEach((item) => {
+        //     if (typeof item.isInit === 'boolean' && item.isInit) {
+        //       init.push(`this.${item.id}();`)
+        //     } else if (typeof item.isInit === 'string') {
+        //       init.push(`if (${parseProps(item.isInit)}) { this.${item.id}(); }`)
+        //     }
+        //     // methods.push(parseDataSource(item));
+        //   });
 
-          if (schema.dataSource.dataHandler) {
-            const { params, content } = parseFunction(schema.dataSource.dataHandler);
-            methods.push(`dataHandler(${params}) {${content}}`);
-            init.push(`this.dataHandler()`);
-          }
-        }
+        //   if (schema.dataSource.dataHandler) {
+        //     const { params, content } = parseFunction(schema.dataSource.dataHandler);
+        //     methods.push(`dataHandler(${params}) {${content}}`);
+        //     init.push(`this.dataHandler()`);
+        //   }
+        // }
 
         if (schema.lifeCycles) {
           if (!schema.lifeCycles['_constructor']) {
@@ -316,6 +341,13 @@ module.exports = function(schema, option) {
         render.push(generateRender(schema))
         render.push(`);}`);
 
+        let classData = [`class ${_.upperFirst(_.camelCase(schema.props.className))} extends Component {
+          constructor (props) {
+            super(props)
+            let defaultState = ${JSON.stringify(renderStates)};
+            this.state = Object.assign(defaultState, JSON.parse(JSON.stringify(props)));
+          }
+          `];
         classData = classData.concat(states).concat(lifeCycles).concat(methods).concat(render);
         classData.push('}');
 
@@ -343,6 +375,12 @@ module.exports = function(schema, option) {
     singleQuote: true
   };
 
+  let css = `import Taro from '@tarojs/taro';
+  export default ${toString(style)}`;
+  
+  css = css.replace(/"Taro.pxTransform\(/g, 'Taro.pxTransform(');
+  css = css.replace(/\)px"/g, '\)');
+
   return {
     panelDisplay: [
       {
@@ -350,18 +388,19 @@ module.exports = function(schema, option) {
         panelValue: prettier.format(`
           'use strict';
 
-          import React, { Component } from 'react';
+          import Taro, {Component} from "@tarojs/taro";
+          import { View, Text, Image } from '@tarojs/components';
           ${imports.join('\n')}
           import styles from './style.js';
           ${utils.join('\n')}
           ${classes.join('\n')}
-          export default ${schema.componentName}_0;
+          export default ${_.upperFirst(_.camelCase(schema.props.className))}; 
         `, prettierOpt),
-        panelType: 'js',
+        panelType: 'jsx',
       },
       {
         panelName: `style.js`,
-        panelValue: prettier.format(`export default ${toString(style)}`, prettierOpt),
+        panelValue: prettier.format(css, prettierOpt),
         panelType: 'js'
       }
     ],
