@@ -1,4 +1,4 @@
-# 毫末科技Jeecg DSL
+# 使用毫末科技Jeecg DSL建立初版，后续对应自己的组件
 
 > 官网：[https://haomo-tech.com](https://haomo-tech.com)
 
