@@ -1,32 +1,62 @@
 module.exports = function(schema, option) {
   const {_, prettier} = option;
 
+  // template
+  const template = [];
+
   // imports
   const imports = [];
-
-  // inline style
-  const style = {};
 
   // Global Public Functions
   const utils = [];
 
-  // Classes 
-  const classes = [];
+  // data
+  const datas = [];
 
-  // 组件的states
-  const renderStates = {};
+  const constants = {};
+
+  // methods
+  const methods = [];
+
+  const expressionName = [];
+
+  // lifeCycles
+  const lifeCycles = [];
+
+  // styles
+  const styles = [];
+
+  const styles4vw = [];
+
+  // box relative style
+  const boxStyleList = ['fontSize', 'marginTop', 'marginBottom', 'paddingTop', 'paddingBottom', 'height', 'top', 'bottom', 'width', 'maxWidth', 'left', 'right', 'paddingRight', 'paddingLeft', 'marginLeft', 'marginRight', 'lineHeight', 'borderBottomRightRadius', 'borderBottomLeftRadius', 'borderTopRightRadius', 'borderTopLeftRadius', 'borderRadius'];
+
+  // no unit style
+  const noUnitStyles = ['opacity', 'fontWeight'];
+
+  const lifeCycleMap = {
+    '_constructor': 'created',
+    'getDerivedStateFromProps': 'beforeUpdate',
+    'render': '',
+    'componentDidMount': 'mounted',
+    'componentDidUpdate': 'updated',
+    'componentWillUnmount': 'beforeDestroy'
+  }
+
+  const width = option.responsive.width || 750;
+  const viewportWidth = option.responsive.viewportWidth || 375;
 
   // 1vw = width / 100
-  const _w = 750/schema.rect.width;
-  console.log('_w: ', _w);
+  const _w = ( width / 100);
 
-  // 如果组件配置了属性responsive==vw，则返回true
-  const isResponsiveVW = () => {
-    return schema.props.responsive == 'vw';
-  }
+  const _ratio = width / viewportWidth;
 
   const isExpression = (value) => {
     return /^\{\{.*\}\}$/.test(value);
+  }
+
+  const transformEventName = (name) => {
+    return name.replace('on', '').toLowerCase();
   }
 
   const toString = (value) => {
@@ -49,63 +79,48 @@ module.exports = function(schema, option) {
     return String(value);
   };
 
-  // convert to responsive unit, such as rpx
-  const parseStyle = (style) => {
+  // convert to responsive unit, such as vw
+  const parseStyle = (style, toVW) => {
+    const styleData = [];
     for (let key in style) {
-      switch (key) {
-        case 'fontSize':
-        case 'marginTop':
-        case 'marginBottom':
-        case 'paddingTop':
-        case 'paddingBottom':
-        case 'height':
-        case 'top':
-        case 'bottom':
-        case 'width':
-        case 'maxWidth':
-        case 'left':
-        case 'right':
-        case 'paddingRight':
-        case 'paddingLeft':
-        case 'marginLeft':
-        case 'marginRight':
-        case 'lineHeight':
-        case 'borderBottomRightRadius':
-        case 'borderBottomLeftRadius':
-        case 'borderTopRightRadius':
-        case 'borderTopLeftRadius':
-        case 'borderRadius':
-          // style[key] = (parseInt(style[key]) * 100 / (_w*750)).toFixed(2) + 'vw';
-          // 如果组件配置了属性responsive==vw，那么使用vw单位.
-          if (isResponsiveVW()) {
-            style[key] = ((parseInt(style[key]) * _w * 100)/750).toFixed(2) + 'vw';
-          } else  {
-            style[key] = 'Taro.pxTransform(' + (parseInt(style[key]) * _w).toFixed(0) + ')px';
-          }
-          break;
+      let value = style[key];
+      if (boxStyleList.indexOf(key) != -1) {
+        if (toVW) {
+          value = (parseInt(value) / _w).toFixed(2);
+          value = value == 0 ? value : value + 'vw';
+        } else {
+          value = (parseInt(value)).toFixed(2);
+          value = value == 0 ? value : value + 'px';
+        }
+        styleData.push(`${_.kebabCase(key)}: ${value}`);
+      } else if (noUnitStyles.indexOf(key) != -1) {
+        styleData.push(`${_.kebabCase(key)}: ${parseFloat(value)}`);
+      } else {
+        styleData.push(`${_.kebabCase(key)}: ${value}`);
       }
     }
-
-    return style;
+    return styleData.join(';');
   }
 
   // parse function, return params and content
   const parseFunction = (func) => {
     const funcString = func.toString();
+    const name = funcString.slice(funcString.indexOf('function'), funcString.indexOf('(')).replace('function ','');
     const params = funcString.match(/\([^\(\)]*\)/)[0].slice(1, -1);
     const content = funcString.slice(funcString.indexOf('{') + 1, funcString.lastIndexOf('}'));
     return {
       params,
-      content
+      content,
+      name
     };
   }
 
   // parse layer props(static values or expression)
-  const parseProps = (value, isReactNode) => {
+  const parseProps = (value, isReactNode, constantName) => {
     if (typeof value === 'string') {
       if (isExpression(value)) {
         if (isReactNode) {
-          return value.slice(1, -1);
+          return `{{${value.slice(7, -2)}}}`;
         } else {
           return value.slice(2, -2);
         }
@@ -113,12 +128,29 @@ module.exports = function(schema, option) {
 
       if (isReactNode) {
         return value;
+      } else if (constantName) { // save to constant
+        expressionName[constantName] = expressionName[constantName] ? expressionName[constantName] + 1 : 1;
+        const name = `${constantName}${expressionName[constantName]}`;
+        constants[name] = value;
+        return `"constants.${name}"`;
       } else {
-        return `'${value}'`;
+        return `"${value}"`;
       }
     } else if (typeof value === 'function') {
-      const {params, content} = parseFunction(value);
-      return `(${params}) => {${content}}`;
+      const {params, content, name} = parseFunction(value);
+      expressionName[name] = expressionName[name] ? expressionName[name] + 1 : 1;
+      methods.push(`${name}_${expressionName[name]}(${params}) {${content}}`);
+      return `${name}_${expressionName[name]}`;
+    } else {
+      return `"${value}"`;
+    }
+  }
+
+  const parsePropsKey = (key, value) => {
+    if (typeof value === 'function') {
+      return `@${transformEventName(key)}`;
+    } else {
+      return `:${key}`;
     }
   }
 
@@ -180,11 +212,12 @@ module.exports = function(schema, option) {
 
   // parse condition: whether render the layer
   const parseCondition = (condition, render) => {
-    if (typeof condition === 'boolean') {
-      return `${condition} && ${render}`
-    } else if (typeof condition === 'string') {
-      return `${condition.slice(2, -2)} && ${render}`
+    let _condition = isExpression(condition) ? condition.slice(2, -2) : condition;
+    if (typeof _condition === 'string') {
+      _condition = _condition.replace('this.', '');
     }
+    render = render.replace(/^<\w+\s/, `${render.match(/^<\w+\s/)[0]} v-if="${_condition}" `);
+    return render;
   }
 
   // parse loop render
@@ -194,32 +227,44 @@ module.exports = function(schema, option) {
     let loopArgIndex = (loopArg && loopArg[1]) || 'index';
 
     if (Array.isArray(loop)) {
-      data = toString(loop);
+      data = 'loopData';
+      datas.push(`${data}: ${toString(loop)}`);
     } else if (isExpression(loop)) {
-      data = loop.slice(2, -2);
+      data = loop.slice(2, -2).replace('this.state.', '');
     }
-
     // add loop key
-    const tagEnd = render.match(/^<.+?\s/)[0].length;
-    // render = `${render.slice(0, tagEnd)} key={${loopArgIndex}}${render.slice(tagEnd)}`;
+    const tagEnd = render.indexOf('>');
+    const keyProp = render.slice(0, tagEnd).indexOf('key=') == -1 ? `:key="${loopArgIndex}"` : '';
+    render = `
+      ${render.slice(0, tagEnd)}
+      v-for="(${loopArgItem}, ${loopArgIndex}) in ${data}"  
+      ${keyProp}
+      ${render.slice(tagEnd)}`;
 
     // remove `this` 
     const re = new RegExp(`this.${loopArgItem}`, 'g')
     render = render.replace(re, loopArgItem);
 
-    return `${data}.map((${loopArgItem}, ${loopArgIndex}) => {
-      return (${render});
-    })`;
+    return render;
   }
 
   // generate render xml
   const generateRender = (schema) => {
     const type = schema.componentName.toLowerCase();
     const className = schema.props && schema.props.className;
-    const classString = className ? ` style={styles.${_.camelCase(className)}}` : '';
+    const classString = className ? ` class="${className}"` : '';
 
     if (className) {
-      style[_.camelCase(className)] = parseStyle(schema.props.style);
+      styles.push(`
+        .${className} {
+          ${parseStyle(schema.props.style)}
+        }
+      `);
+      styles4vw.push(`
+        .${className} {
+          ${parseStyle(schema.props.style, true)}
+        }
+      `);
     }
 
     let xml;
@@ -227,39 +272,39 @@ module.exports = function(schema, option) {
 
     Object.keys(schema.props).forEach((key) => {
       if (['className', 'style', 'text', 'src'].indexOf(key) === -1) {
-        props += ` ${key}={${parseProps(schema.props[key])}}`;
+        props += ` ${parsePropsKey(key, schema.props[key])}=${parseProps(schema.props[key])}`;
       }
     })
-
     switch(type) {
       case 'text':
         const innerText = parseProps(schema.props.text, true);
-        renderStates[_.camelCase(schema.props.className)] = innerText;
-        xml = `<Text${classString}${props}>{this.state.${_.camelCase(schema.props.className)}}</Text>`;
+        xml = `<span${classString}${props}>${innerText}</span> `;
         break;
       case 'image':
-        const source = parseProps(schema.props.src);
-        renderStates[_.camelCase(schema.props.className)] = source;
-        xml = `<Image${classString}${props} src={this.state.${_.camelCase(schema.props.className)}} />`;
+        let source = parseProps(schema.props.src, false);
+        if (!source.match('"')) {
+          source = `"${source}"`;
+          xml = `<img${classString}${props} :src=${source} /> `;
+        } else {
+          xml = `<img${classString}${props} src=${source} /> `;
+        }
         break;
       case 'div':
       case 'page':
       case 'block':
-        // if (schema.props['hm-component']) {
-        //   xml = `<View class="${schema.props.className}">{"hm-component=${schema.props['hm-component']}"}</View>`
-        // } else {
-        //   if (schema.children && schema.children.length) {
-        //     xml = `<View${classString}${props}>${transform(schema.children)}</View>`;
-        //   } else {
-        //     xml = `<View${classString}${props} />`;
-        //   }
-        // }
+      case 'component':
         if (schema.children && schema.children.length) {
-          xml = `<View${classString}${props}>${transform(schema.children)}</View>`;
+          xml = `<div${classString}${props}>${transform(schema.children)}</div>`;
         } else {
-          xml = `<View${classString}${props} />`;
+          xml = `<div${classString}${props} />`;
         }
         break;
+      default:
+        if (schema.children && schema.children.length) {
+          xml = `<div${classString}${props}>${transform(schema.children)}</div>`;
+        } else {
+          xml = `<div${classString}${props} />`;
+        }
     }
 
     if (schema.loop) {
@@ -267,12 +312,9 @@ module.exports = function(schema, option) {
     }
     if (schema.condition) {
       xml = parseCondition(schema.condition, xml);
+      // console.log(xml);
     }
-    if (schema.loop || schema.condition) {
-      xml = `{${xml}}`;
-    }
-
-    return xml;
+    return xml || '';
   }
 
   // parse schema
@@ -286,16 +328,12 @@ module.exports = function(schema, option) {
     } else {
       const type = schema.componentName.toLowerCase();
 
-      if (['page', 'block'].indexOf(type) !== -1) {
+      if (['page', 'block', 'component'].indexOf(type) !== -1) {
         // 容器组件处理: state/method/dataSource/lifeCycle/render
-        const states = [];
-        const lifeCycles = [];
-        const methods = [];
         const init = [];
-        const render = [`render(){ return (`];
 
         if (schema.state) {
-          states.push(`state = ${toString(schema.state)}`);
+          datas.push(`${toString(schema.state).slice(1, -1)}`);
         }
 
         if (schema.methods) {
@@ -305,58 +343,45 @@ module.exports = function(schema, option) {
           });
         }
 
-        // if (schema.dataSource && Array.isArray(schema.dataSource.list)) {
-        //   schema.dataSource.list.forEach((item) => {
-        //     if (typeof item.isInit === 'boolean' && item.isInit) {
-        //       init.push(`this.${item.id}();`)
-        //     } else if (typeof item.isInit === 'string') {
-        //       init.push(`if (${parseProps(item.isInit)}) { this.${item.id}(); }`)
-        //     }
-        //     // methods.push(parseDataSource(item));
-        //   });
+        if (schema.dataSource && Array.isArray(schema.dataSource.list)) {
+          schema.dataSource.list.forEach((item) => {
+            if (typeof item.isInit === 'boolean' && item.isInit) {
+              init.push(`this.${item.id}();`)
+            } else if (typeof item.isInit === 'string') {
+              init.push(`if (${parseProps(item.isInit)}) { this.${item.id}(); }`)
+            }
+            methods.push(parseDataSource(item));
+          });
 
-        //   if (schema.dataSource.dataHandler) {
-        //     const { params, content } = parseFunction(schema.dataSource.dataHandler);
-        //     methods.push(`dataHandler(${params}) {${content}}`);
-        //     init.push(`this.dataHandler()`);
-        //   }
-        // }
+          if (schema.dataSource.dataHandler) {
+            const { params, content } = parseFunction(schema.dataSource.dataHandler);
+            methods.push(`dataHandler(${params}) {${content}}`);
+            init.push(`this.dataHandler()`);
+          }
+        }
 
         if (schema.lifeCycles) {
           if (!schema.lifeCycles['_constructor']) {
-            lifeCycles.push(`constructor(props, context) { super(); ${init.join('\n')}}`);
+            lifeCycles.push(`${lifeCycleMap['_constructor']}() { ${init.join('\n')}}`);
           }
 
           Object.keys(schema.lifeCycles).forEach((name) => {
+            const vueLifeCircleName = lifeCycleMap[name] || name;
             const { params, content } = parseFunction(schema.lifeCycles[name]);
 
             if (name === '_constructor') {
-              lifeCycles.push(`constructor(${params}) { super(); ${content} ${init.join('\n')}}`);
+              lifeCycles.push(`${vueLifeCircleName}() {${content} ${init.join('\n')}}`);
             } else {
-              lifeCycles.push(`${name}(${params}) {${content}}`);
+              lifeCycles.push(`${vueLifeCircleName}() {${content}}`);
             }
           });
         }
+        template.push(generateRender(schema));
 
-        render.push(generateRender(schema))
-        render.push(`);}`);
-
-        let classData = [`class ${_.upperFirst(_.camelCase(schema.props.className))} extends Component {
-          constructor (props) {
-            super(props)
-            let defaultState = ${JSON.stringify(renderStates)};
-            this.state = Object.assign(defaultState, JSON.parse(JSON.stringify(props)));
-          }
-          `];
-        classData = classData.concat(states).concat(lifeCycles).concat(methods).concat(render);
-        classData.push('}');
-
-        classes.push(classData.join('\n'));
       } else {
         result += generateRender(schema);
       }
     }
-
     return result;
   };
 
@@ -368,42 +393,60 @@ module.exports = function(schema, option) {
 
   // start parse schema
   transform(schema);
+  datas.push(`constants: ${toString(constants)}`);
 
   const prettierOpt = {
-    parser: 'babel',
-    printWidth: 120,
+    parser: 'vue',
+    printWidth: 80,
     singleQuote: true
   };
-
-  let css = `import Taro from '@tarojs/taro';
-  export default ${toString(style)}`;
-  
-  css = css.replace(/"Taro.pxTransform\(/g, 'Taro.pxTransform(');
-  css = css.replace(/\)px"/g, '\)');
 
   return {
     panelDisplay: [
       {
-        panelName: `index.jsx`,
+        panelName: `index.vue`,
         panelValue: prettier.format(`
-          'use strict';
-
-          import Taro, {Component} from "@tarojs/taro";
-          import { View, Text, Image } from '@tarojs/components';
-          ${imports.join('\n')}
-          import styles from './style.js';
-          ${utils.join('\n')}
-          ${classes.join('\n')}
-          export default ${_.upperFirst(_.camelCase(schema.props.className))}; 
+          <template>
+              ${template}
+          </template>
+          <script>
+            ${imports.join('\n')}
+            export default {
+              data() {
+                return {
+                  ${datas.join(',\n')}
+                } 
+              },
+              methods: {
+                ${methods.join(',\n')}
+              },
+              ${lifeCycles.join(',\n')}
+            }
+          </script>
+          <style src="./index.response.css" />
         `, prettierOpt),
-        panelType: 'jsx',
+        panelType: 'vue',
       },
       {
-        panelName: `style.js`,
-        panelValue: prettier.format(css, prettierOpt),
-        panelType: 'js'
+        panelName: 'index.css',
+        panelValue: prettier.format(`${styles.join('\n')}`, {parser: 'css'}),
+        panelType: 'css'
+      },
+      {
+        panelName: 'index.response.css',
+        panelValue: prettier.format(styles4vw.join('\n'), {parser: 'css'}),
+        panelType: 'css'
       }
     ],
+    renderData: {
+      template: template,
+      imports: imports,
+      datas: datas,
+      methods: methods,
+      lifeCycles: lifeCycles,
+      styles: styles
+
+    },
     noTemplate: true
   };
 }

@@ -1,14 +1,22 @@
-'use strict';
+<template>
+{{{template}}}
+</template>
 
-import Taro, {Component} from "@tarojs/taro";
-import { View, Text, Image } from '@tarojs/components';
-
+<script>
 {{{imports}}}
+export default {
+    data() {
+       return {
+           {{{datas.join(',')}}}
+       } 
+    },
+    methods: {
+        {{{methods.join(',')}}}
+    },
+    {{{lifeCycles.join(',')}}}
+}
+</script>
 
-{{{utils}}}
-
-{{{style}}}
-
-{{{classes}}}
-
-{{{exports}}}
+<style scoped>
+    {{{styles.join('\n')}}}
+</style>
