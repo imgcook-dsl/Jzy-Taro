@@ -1,6 +1,6 @@
 module.exports = {
   "componentName": "Block",
-  "id": "562549a0-c1bf-11ea-a223-fdc9bde79695",
+  "id": "08823b20-c58b-11ea-bb0e-cd26632cf206",
   "rect": {
     "x": 0,
     "y": 0,
@@ -18,13 +18,13 @@ module.exports = {
     },
     "className": "mod"
   },
-  "artboardImg": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/4fa37c50c1bf11eab4042f369436c2f5.png",
+  "artboardImg": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/ee6274d0c58a11ea84a8a79e98df3633.png",
   "imgcook": {
-    "restore_id": "0ade68a1-865f-4b5d-913a-8eb0b15c055e"
+    "restore_id": "d0808a10-8689-4b8f-aa07-48ab6abf2605"
   },
   "children": [{
     "componentName": "Div",
-    "id": "56265b12-c1bf-11ea-a223-fdc9bde79695",
+    "id": "08834c92-c58b-11ea-bb0e-cd26632cf206",
     "rect": {
       "x": 0,
       "y": 0,
@@ -45,10 +45,10 @@ module.exports = {
       },
       "className": "hd"
     },
-    "selfId": "2845ADD3-3982-45F0-BF4E-338EF81D73DE",
+    "selfId": "4C3443D5-7D7B-4DD6-A38F-DE96DDF87EDE",
     "children": [{
       "componentName": "Div",
-      "id": "76c5b2e2-c18a-481b-b404-2589dd462777",
+      "id": "701707a1-7370-4978-b047-c3e071749d3f",
       "rect": {
         "x": 14,
         "y": 5,
@@ -70,7 +70,7 @@ module.exports = {
       },
       "children": [{
         "componentName": "Image",
-        "id": "56263403-c1bf-11ea-a223-fdc9bde79695",
+        "id": "08832583-c58b-11ea-bb0e-cd26632cf206",
         "rect": {
           "x": 14,
           "y": 5,
@@ -84,13 +84,13 @@ module.exports = {
             "width": "17px",
             "height": "11px"
           },
-          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/52c30bd0c1bf11ea95741b4db311ea49.png",
+          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/f046c530c58a11ea86965145e7f2488d.png",
           "className": "icon"
         },
-        "selfId": "4F8AD860-9BBC-45EC-A573-E227698D4F3F"
+        "selfId": "9738CA91-57D1-44A2-A8A9-96DAB649EC4B"
       }, {
         "componentName": "Image",
-        "id": "56263404-c1bf-11ea-a223-fdc9bde79695",
+        "id": "08832584-c58b-11ea-bb0e-cd26632cf206",
         "rect": {
           "x": 34,
           "y": 5,
@@ -103,14 +103,14 @@ module.exports = {
             "width": "15px",
             "height": "11px"
           },
-          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/52939760c1bf11ea85d17108e1cf46aa.png",
+          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/f0253370c58a11eaa8413b05d998f962.png",
           "className": "icon_2"
         },
-        "selfId": "CF70AF69-3CB5-428E-8328-33DDD0E66666"
+        "selfId": "1CB979DC-CA27-48D9-84C8-4F80698AF53D"
       }]
     }, {
       "componentName": "Text",
-      "id": "56263402-c1bf-11ea-a223-fdc9bde79695",
+      "id": "08832582-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
         "x": 183,
         "y": 0,
@@ -136,10 +136,10 @@ module.exports = {
         "lines": 1,
         "className": "txt"
       },
-      "selfId": "82CC3CFF-02CB-41FC-9EFE-E1AB188C9C590"
+      "selfId": "A2D71BF7-57EB-4688-B442-D80819500C220"
     }, {
       "componentName": "Div",
-      "id": "91aeb5e7-33ab-4488-9326-8714ea24ba08",
+      "id": "c7dfe8d5-98eb-4ef6-bf13-213c2fc16e0f",
       "rect": {
         "x": 375,
         "y": 5,
@@ -160,7 +160,7 @@ module.exports = {
       },
       "children": [{
         "componentName": "Div",
-        "id": "56265b11-c1bf-11ea-a223-fdc9bde79695",
+        "id": "08834c91-c58b-11ea-bb0e-cd26632cf206",
         "rect": {
           "x": 375,
           "y": 5,
@@ -184,10 +184,10 @@ module.exports = {
           },
           "className": "container"
         },
-        "selfId": "D7E911DB-98A8-4D92-9944-01754FDC3119",
+        "selfId": "33FAEF5F-468F-4571-9655-628533CB2EB5",
         "children": [{
           "componentName": "Div",
-          "id": "56263405-c1bf-11ea-a223-fdc9bde79695",
+          "id": "08832585-c58b-11ea-bb0e-cd26632cf206",
           "rect": {
             "x": 377,
             "y": 7,
@@ -204,11 +204,11 @@ module.exports = {
             },
             "className": "color"
           },
-          "selfId": "13FBE001-BCFC-4586-B653-794535D6EF5A"
+          "selfId": "25254728-74E7-4E8F-96D8-CAF9BC1A5711"
         }]
       }, {
         "componentName": "Image",
-        "id": "56265b10-c1bf-11ea-a223-fdc9bde79695",
+        "id": "08834c90-c58b-11ea-bb0e-cd26632cf206",
         "rect": {
           "x": 398,
           "y": 9,
@@ -221,15 +221,15 @@ module.exports = {
             "width": "1px",
             "height": "4px"
           },
-          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/524661c0c1bf11ea97b3bba7a94e78d8.png",
+          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/f00639c0c58a11ea95181f41815840e7.png",
           "className": "dot"
         },
-        "selfId": "7D618FE1-BC64-444E-AC1A-A36884A0B71F"
+        "selfId": "5BF560DB-621E-4661-A907-91FC35BBE48F"
       }]
     }]
   }, {
     "componentName": "Div",
-    "id": "56263401-c1bf-11ea-a223-fdc9bde79695",
+    "id": "08832581-c58b-11ea-bb0e-cd26632cf206",
     "rect": {
       "x": 0,
       "y": 22,
@@ -250,10 +250,10 @@ module.exports = {
       },
       "className": "bd"
     },
-    "selfId": "0DE1564C-9797-41BE-8642-1D2B860D1CCB",
+    "selfId": "DD512D95-2B95-4529-A81D-7EC22AAEA02E",
     "children": [{
       "componentName": "Div",
-      "id": "56260cf4-c1bf-11ea-a223-fdc9bde79695",
+      "id": "0882fe74-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
         "x": 20,
         "y": 33,
@@ -274,10 +274,10 @@ module.exports = {
         },
         "className": "group_2"
       },
-      "selfId": "ED3E16A3-8FD5-46C1-AAAB-313A3051A6C4",
+      "selfId": "B3DF24E7-88A2-46AE-81D3-AD76870EF457",
       "children": [{
         "componentName": "Image",
-        "id": "56260cf2-c1bf-11ea-a223-fdc9bde79695",
+        "id": "0882fe72-c58b-11ea-bb0e-cd26632cf206",
         "rect": {
           "x": 25,
           "y": 36,
@@ -290,14 +290,14 @@ module.exports = {
             "width": "7px",
             "height": "13px"
           },
-          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/53034920c1bf11eab8dae12435ac7b24.png",
+          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/f08ad310c58a11eab3b791a81edee67a.png",
           "className": "img"
         },
-        "selfId": "8B6E4A73-EF06-4B5F-9FCD-A2DDFE7F0620"
+        "selfId": "DAD0B978-0314-4222-8150-82A2160B3EB0"
       }]
     }, {
       "componentName": "Text",
-      "id": "56263400-c1bf-11ea-a223-fdc9bde79695",
+      "id": "08832580-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
         "x": 175,
         "y": 32,
@@ -323,10 +323,10 @@ module.exports = {
         "lines": 1,
         "className": "word"
       },
-      "selfId": "B38D8CE1-234A-4B4F-A6A3-9E66224A67B20"
+      "selfId": "C32F1027-3106-4329-9754-8D10657210DB0"
     }, {
       "componentName": "Image",
-      "id": "56260cf1-c1bf-11ea-a223-fdc9bde79695",
+      "id": "0882fe71-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
         "x": 376,
         "y": 42,
@@ -339,14 +339,14 @@ module.exports = {
           "width": "17px",
           "height": "3px"
         },
-        "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/5322df10c1bf11ea8c2f9bd01ca09a08.png",
+        "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/f0aa41f0c58a11eaa6b8011937c9209d.png",
         "className": "icon_3"
       },
-      "selfId": "3EA7A10F-9BB2-434D-9337-6712F20F9D63"
+      "selfId": "DD941D8A-FEB5-4252-8DCC-BFADEA90C22E"
     }]
   }, {
     "componentName": "Div",
-    "id": "f1c15e43-25ce-4cd1-85bd-f1e87d07ed93",
+    "id": "84c0ee51-c3d1-4d6c-996f-d8f9b0c5b9ad",
     "rect": {
       "x": 0,
       "y": 65,
@@ -371,10 +371,10 @@ module.exports = {
       },
       "className": "main"
     },
-    "selfId": "990060B6-23F2-4F60-9C6B-E3CBB16BE53A",
+    "selfId": "8E8FC790-44DB-4F31-93AD-D09E56174D72",
     "children": [{
       "componentName": "Image",
-      "id": "56260cf0-c1bf-11ea-a223-fdc9bde79695",
+      "id": "0882fe70-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
         "x": 0,
         "y": 65,
@@ -390,13 +390,13 @@ module.exports = {
           "width": "414px",
           "height": "232px"
         },
-        "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/536e6700c1bf11ea804f9bc89db4bfb9.png",
+        "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/f1181ef0c58a11eab658359a71a43959.png",
         "className": "layer"
       },
-      "selfId": "6548F7F0-E234-4942-B610-E7B6AD64A7DE"
+      "selfId": "D88CC1E2-9D42-4AF7-91AF-D0C97D47477F"
     }, {
       "componentName": "Div",
-      "id": "5625e5e3-c1bf-11ea-a223-fdc9bde79695",
+      "id": "0882d763-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
         "x": 0,
         "y": 65,
@@ -416,10 +416,10 @@ module.exports = {
         },
         "className": "block_3"
       },
-      "selfId": "F7D68338-CBAF-4CC6-831F-05D6F7540DDF",
+      "selfId": "DE375FCC-EF37-40BB-A9FF-3EC7A2319562",
       "children": [{
         "componentName": "Image",
-        "id": "5625bed1-c1bf-11ea-a223-fdc9bde79695",
+        "id": "0882b052-c58b-11ea-bb0e-cd26632cf206",
         "rect": {
           "x": 363,
           "y": 76,
@@ -435,13 +435,13 @@ module.exports = {
             "width": "51px",
             "height": "38px"
           },
-          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/53ad1db0c1bf11ea9b3c37aa03fbe4d5.png",
+          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/f144fb50c58a11eab3830b3dfa22e520.png",
           "className": "largeIcon"
         },
-        "selfId": "4348A15C-7370-4EB4-B643-7121E7C1601F"
+        "selfId": "9469EA0A-7654-4C2E-9725-4E898308DAB2"
       }, {
         "componentName": "Div",
-        "id": "797c18f5-7ffa-4f5b-bd53-0f789b1f5ffa",
+        "id": "08769d1b-c337-4ff9-8a96-5c05d510cb87",
         "rect": {
           "x": 40,
           "y": 177,
@@ -463,7 +463,7 @@ module.exports = {
         },
         "children": [{
           "componentName": "Image",
-          "id": "5625bed0-c1bf-11ea-a223-fdc9bde79695",
+          "id": "0882b051-c58b-11ea-bb0e-cd26632cf206",
           "rect": {
             "x": 40,
             "y": 177,
@@ -477,13 +477,13 @@ module.exports = {
               "width": "88px",
               "height": "88px"
             },
-            "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/53ef08b0c1bf11eab09ddd512a80cce6.png",
+            "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/f18f4ac0c58a11ea93945704b9b489f5.png",
             "className": "avator"
           },
-          "selfId": "B7F53EF8-0A83-4BF8-88A0-0D663603B64A"
+          "selfId": "0E37D7E6-3CB9-468E-B196-5D2832E2CD51"
         }, {
           "componentName": "Div",
-          "id": "bc5a5af0-68c0-41ac-b9b0-898eca3da3e4",
+          "id": "ec11d395-d6e1-46eb-bf6b-7432a21b95ae",
           "rect": {
             "x": 146,
             "y": 177,
@@ -502,7 +502,7 @@ module.exports = {
           },
           "children": [{
             "componentName": "Text",
-            "id": "5625e5e1-c1bf-11ea-a223-fdc9bde79695",
+            "id": "0882d761-c58b-11ea-bb0e-cd26632cf206",
             "rect": {
               "x": 146,
               "y": 177,
@@ -525,10 +525,10 @@ module.exports = {
               "lines": 1,
               "className": "info"
             },
-            "selfId": "48DCA031-8C4E-4092-B570-72917EDCF3550"
+            "selfId": "B6D477DB-93E1-49DA-9273-D1097EC4E8D20"
           }, {
             "componentName": "Text",
-            "id": "5625e5e2-c1bf-11ea-a223-fdc9bde79695",
+            "id": "0882d762-c58b-11ea-bb0e-cd26632cf206",
             "rect": {
               "x": 146,
               "y": 207,
@@ -550,12 +550,12 @@ module.exports = {
               },
               "text": "粉丝：98767868709",
               "lines": 1,
-              "className": "text"
+              "className": "word_2"
             },
-            "selfId": "9FE4D586-D5DD-4EA1-828B-248138BD480C0"
+            "selfId": "17D450EF-45D4-4F97-ACCB-9D677D04D33F0"
           }, {
             "componentName": "nut-button",
-            "id": "6d77ceae-0785-4c2f-84e8-9fa13112e6bb",
+            "id": "299d39d4-b044-4540-9a0b-169b2fe220f4",
             "rect": {
               "x": 146,
               "y": 237,
@@ -584,10 +584,10 @@ module.exports = {
               },
               "className": "tagWrap"
             },
-            "selfId": "AD1A3790-C394-4D40-908A-6F2D9444E489",
+            "selfId": "31561D02-DBE7-4F22-9A01-8881F39C2DD7",
             "children": [{
               "componentName": "Text",
-              "id": "5625bed3-c1bf-11ea-a223-fdc9bde79695",
+              "id": "0882b054-c58b-11ea-bb0e-cd26632cf206",
               "rect": {
                 "x": 168,
                 "y": 243,
@@ -613,7 +613,7 @@ module.exports = {
                 "lines": 1,
                 "className": "tag"
               },
-              "selfId": "A08D8913-FE21-40DA-AC0E-945A4A557B940"
+              "selfId": "AE4221BF-CEE7-4D4C-BE56-322B49D395280"
             }]
           }]
         }]
@@ -621,11 +621,11 @@ module.exports = {
     }]
   }, {
     "componentName": "nut-tab",
-    "id": "904510d4-8c17-45be-99f4-bd8eabe12374",
+    "id": "b8411962-ed4b-476d-9b76-4bddb66e8d08",
     "rect": {
-      "x": 68,
+      "x": 27,
       "y": 317,
-      "width": 278,
+      "width": 361,
       "height": 22
     },
     "smart": {
@@ -641,22 +641,57 @@ module.exports = {
         "position": "relative",
         "alignItems": "center",
         "flexDirection": "row",
-        "justifyContent": "space-between",
         "marginTop": "20px",
-        "width": "278px",
+        "width": "361px",
         "height": "22px"
       },
-      "className": "submain",
-      "position-nav": "top",
-      "is-scroll": false,
-      "is-show-line": true
+      "className": "submain"
     },
-    "selfId": "FC8AEB84-AF67-4F00-AEBA-F5DA3EB22573",
+    "selfId": "949A8B93-D32B-484A-BB7C-D04C2A70A02E",
     "children": [{
       "componentName": "nut-tab-panel",
-      "id": "562570b0-c1bf-11ea-a223-fdc9bde79695",
+      "id": "08828941-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
-        "x": 68,
+        "x": 360,
+        "y": 317,
+        "width": 29,
+        "height": 20
+      },
+      "smart": {
+        "layerProtocol": {
+          "component": {
+            "type": "nut-tab-panel",
+            "params": {
+              "tab-title": "排行"
+            }
+          },
+          "repeat": {
+            "type": "repeat",
+            "repeatId": "626652",
+            "repeatIndex": "0"
+          }
+        }
+      },
+      "props": {
+        "style": {
+          "position": "absolute",
+          "top": "0px",
+          "right": "-1px",
+          "opacity": 1,
+          "width": "29px",
+          "height": "20px"
+        },
+        "text": "排名",
+        "lines": 1,
+        "tab-title": "排行",
+        "className": "empty"
+      },
+      "selfId": "6291B8F7-3503-45BB-9D0E-7904A8C505CE0"
+    }, {
+      "componentName": "nut-tab-panel",
+      "id": "08826231-c58b-11ea-bb0e-cd26632cf206",
+      "rect": {
+        "x": 27,
         "y": 319,
         "width": 29,
         "height": 20
@@ -666,32 +701,34 @@ module.exports = {
           "component": {
             "type": "nut-tab-panel",
             "params": {
-              "content": "goods"
+              "tab-title": "商品"
             }
           },
           "repeat": {
             "type": "repeat",
-            "repeatId": "998347",
-            "repeatIndex": "0"
+            "repeatId": "626652",
+            "repeatIndex": "1"
           }
         }
       },
       "props": {
         "style": {
+          "position": "relative",
+          "marginRight": "139px",
           "width": "29px",
           "height": "20px"
         },
         "text": "商品",
         "lines": 1,
-        "content": "goods",
-        "className": "empty"
+        "tab-title": "商品",
+        "className": "div"
       },
-      "selfId": "7628E2F4-BA32-4FEF-95C3-F29205F4E4130"
+      "selfId": "5CE5093C-5C55-47D9-9729-E1C2C85F3CF40"
     }, {
       "componentName": "nut-tab-panel",
-      "id": "562597c0-c1bf-11ea-a223-fdc9bde79695",
+      "id": "08828940-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
-        "x": 193,
+        "x": 195,
         "y": 317,
         "width": 29,
         "height": 20
@@ -699,407 +736,325 @@ module.exports = {
       "smart": {
         "layerProtocol": {
           "component": {
-            "type": "nut-tab-panel"
+            "type": "nut-tab-panel",
+            "params": {
+              "tab-title": "活动"
+            }
           },
           "repeat": {
             "type": "repeat",
-            "repeatId": "998347",
-            "repeatIndex": "1"
+            "repeatId": "626652",
+            "repeatIndex": "2"
           }
         }
       },
       "props": {
         "style": {
+          "position": "relative",
           "opacity": 1,
           "width": "29px",
           "height": "20px"
         },
         "text": "活动",
         "lines": 1,
-        "className": "div"
+        "tab-title": "活动",
+        "className": "empty_2"
       },
-      "selfId": "7C5AC6B3-3A21-4A3F-971A-0392499717530"
+      "selfId": "5843A70E-0B93-4DCC-B5FF-4EB102F618F90"
+    }]
+  }, {
+    "componentName": "Div",
+    "id": "0883e8d4-c58b-11ea-bb0e-cd26632cf206",
+    "rect": {
+      "x": 20,
+      "y": 369,
+      "width": 374,
+      "height": 60
+    },
+    "smart": {},
+    "props": {
+      "style": {
+        "boxSizing": "border-box",
+        "display": "flex",
+        "position": "relative",
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginTop": "30px",
+        "borderRadius": "20px",
+        "boxShadow": "0px 10px 30px rgba(244, 225, 213, 1.00)",
+        "backgroundColor": "#ffffff",
+        "paddingRight": "11px",
+        "paddingLeft": "16px",
+        "width": "374px",
+        "height": "60px"
+      },
+      "className": "row"
+    },
+    "selfId": "78964D6C-BF31-445D-AD8B-B98A394017AA",
+    "children": [{
+      "componentName": "Div",
+      "id": "ea20390e-4c95-4278-9286-dfe9c423e822",
+      "rect": {
+        "x": 36,
+        "y": 379,
+        "width": 208,
+        "height": 40
+      },
+      "smart": {},
+      "props": {
+        "style": {
+          "display": "flex",
+          "alignItems": "center",
+          "flexDirection": "row",
+          "height": "40px"
+        },
+        "className": "group_3"
+      },
+      "children": [{
+        "componentName": "Image",
+        "id": "0883e8d0-c58b-11ea-bb0e-cd26632cf206",
+        "rect": {
+          "x": 36,
+          "y": 384,
+          "width": 30,
+          "height": 30
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "marginRight": "6px",
+            "width": "30px",
+            "height": "30px"
+          },
+          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/ef959da0c58a11ea9f9267368406f110.png",
+          "className": "icon_4"
+        },
+        "selfId": "C3AF2A00-7763-47FF-BAC9-43D23FA44539"
+      }, {
+        "componentName": "Image",
+        "id": "0883e8d3-c58b-11ea-bb0e-cd26632cf206",
+        "rect": {
+          "x": 72,
+          "y": 379,
+          "width": 40,
+          "height": 40
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "marginRight": "10px",
+            "width": "40px",
+            "height": "40px",
+            "overflow": "hidden"
+          },
+          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/ef69f9c0c58a11ea99170b396c1cb586.png",
+          "className": "icon_5"
+        },
+        "selfId": "7F65FAC2-EC4B-430C-96DB-C93969E08215"
+      }, {
+        "componentName": "Text",
+        "id": "0883e8d2-c58b-11ea-bb0e-cd26632cf206",
+        "rect": {
+          "x": 122,
+          "y": 388,
+          "width": 122,
+          "height": 22
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "opacity": 1,
+            "maxWidth": "153px",
+            "height": "22px",
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "lineHeight": "22px",
+            "letterSpacing": "0.19px",
+            "whiteSpace": "pre",
+            "color": "#22242a",
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "text": "Brian Rodriguez",
+          "lines": 1,
+          "className": "brianRodriguez"
+        },
+        "selfId": "A3C91AE7-A70C-44A6-A7EB-87BC3880FCB40"
+      }]
     }, {
       "componentName": "Text",
-      "id": "562597c1-c1bf-11ea-a223-fdc9bde79695",
+      "id": "0883e8d1-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
-        "x": 317,
-        "y": 317,
-        "width": 29,
-        "height": 20
+        "x": 314,
+        "y": 390,
+        "width": 69,
+        "height": 19
       },
       "smart": {},
       "props": {
         "style": {
           "opacity": 1,
-          "lineHeight": "20px",
-          "letterSpacing": "0px",
+          "lineHeight": "19px",
+          "letterSpacing": "0.19px",
           "whiteSpace": "nowrap",
           "color": "#22242a",
-          "fontSize": "14px",
-          "fontWeight": 400
+          "fontFamily": "DINAlternate-Bold, DIN Alternate",
+          "fontSize": "16px",
+          "fontWeight": "bold"
         },
-        "text": "排名",
+        "text": "¥1678,89",
         "lines": 1,
-        "className": "text_2"
+        "className": "price"
       },
-      "selfId": "7DF89C3B-E645-4630-B268-07457172A3320"
+      "selfId": "92D313A2-D475-4550-8AB1-DDAEE0A0537D0"
     }]
   }, {
-    "componentName": "van-list",
-    "id": "8b707174-0f07-4c8f-b700-2b8a81e55692",
+    "componentName": "Div",
+    "id": "0883c1c1-c58b-11ea-bb0e-cd26632cf206",
     "rect": {
       "x": 20,
-      "y": 369,
+      "y": 451,
       "width": 374,
-      "height": 142
+      "height": 60
     },
-    "smart": {
-      "layerProtocol": {
-        "component": {
-          "type": "van-list",
-          "params": {
-            "finished": "false"
-          }
-        }
-      }
-    },
+    "smart": {},
     "props": {
       "style": {
+        "boxSizing": "border-box",
         "display": "flex",
         "position": "relative",
-        "alignItems": "flex-start",
-        "flexDirection": "column",
-        "marginTop": "30px",
-        "height": "142px"
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginTop": "22px",
+        "borderRadius": "20px",
+        "boxShadow": "0px 10px 30px rgba(244, 225, 213, 1.00)",
+        "backgroundColor": "#ffffff",
+        "paddingRight": "11px",
+        "paddingLeft": "16px",
+        "width": "374px",
+        "height": "60px"
       },
-      "finished": "false",
       "className": "ft"
     },
-    "selfId": "3F3FE86A-820E-4244-84C2-4FD3AAC227C3",
+    "selfId": "C7B33234-CF74-40F7-BE62-8C757336D223",
     "children": [{
-      "componentName": "van-cell",
-      "id": "d5f3df06-973d-44c8-bd52-fd6b545d624a",
+      "componentName": "Div",
+      "id": "3693946c-bd2f-49bb-89c3-b4c7997487fa",
       "rect": {
-        "x": 20,
-        "y": 369,
-        "width": 374,
-        "height": 60
+        "x": 36,
+        "y": 461,
+        "width": 208,
+        "height": 40
       },
-      "smart": {
-        "layerProtocol": {
-          "component": {
-            "type": "van-cell",
-            "params": {
-              "title": "02"
-            }
-          },
-          "repeat": {
-            "type": "repeat",
-            "repeatId": "577879",
-            "repeatIndex": "0"
-          }
-        }
-      },
+      "smart": {},
       "props": {
         "style": {
-          "boxSizing": "border-box",
-          "boxShadow": "0px 10px 30px rgba(244, 225, 213, 1.00)",
           "display": "flex",
-          "position": "relative",
           "alignItems": "center",
           "flexDirection": "row",
-          "justifyContent": "space-between",
-          "borderRadius": "20px",
-          "backgroundColor": "#ffffff",
-          "paddingRight": "11px",
-          "paddingLeft": "16px",
-          "width": "374px",
-          "height": "60px"
+          "height": "40px"
         },
-        "title": "02",
-        "className": "row1"
+        "className": "block_4"
       },
-      "selfId": "880F4CCD-7349-472C-B6E5-0647B3337FCC",
       "children": [{
-        "componentName": "Div",
-        "id": "c373ad1d-ec71-4148-9dd9-82f5682c192f",
+        "componentName": "Image",
+        "id": "08834c93-c58b-11ea-bb0e-cd26632cf206",
         "rect": {
           "x": 36,
-          "y": 379,
-          "width": 208,
+          "y": 466,
+          "width": 30,
+          "height": 30
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "marginRight": "6px",
+            "width": "30px",
+            "height": "30px"
+          },
+          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/efe0b060c58a11ea9f8e379283e3d7d8.png",
+          "className": "icon_6"
+        },
+        "selfId": "76DE25E9-8AC6-45C0-BD67-971C1D5071DC"
+      }, {
+        "componentName": "Image",
+        "id": "0883c1c0-c58b-11ea-bb0e-cd26632cf206",
+        "rect": {
+          "x": 72,
+          "y": 461,
+          "width": 40,
           "height": 40
         },
         "smart": {},
         "props": {
           "style": {
-            "display": "flex",
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": "40px"
+            "marginRight": "10px",
+            "width": "40px",
+            "height": "40px",
+            "overflow": "hidden"
           },
-          "className": "group_3"
+          "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/efbf45b0c58a11ea9133c3946b5b81aa.png",
+          "className": "icon_7"
         },
-        "children": [{
-          "componentName": "Image",
-          "id": "5626a931-c1bf-11ea-a223-fdc9bde79695",
-          "rect": {
-            "x": 36,
-            "y": 384,
-            "width": 30,
-            "height": 30
-          },
-          "smart": {},
-          "props": {
-            "style": {
-              "marginRight": "6px",
-              "width": "30px",
-              "height": "30px"
-            },
-            "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/51ca53f0c1bf11eaad21171147243346.png",
-            "className": "icon_4"
-          },
-          "selfId": "3A94C824-FA56-438A-86CB-A72E45D368D0"
-        }, {
-          "componentName": "Image",
-          "id": "5626a934-c1bf-11ea-a223-fdc9bde79695",
-          "rect": {
-            "x": 72,
-            "y": 379,
-            "width": 40,
-            "height": 40
-          },
-          "smart": {},
-          "props": {
-            "style": {
-              "marginRight": "10px",
-              "width": "40px",
-              "height": "40px",
-              "overflow": "hidden"
-            },
-            "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/519b54b0c1bf11eaa8363f05c9fbc4ae.png",
-            "className": "icon_5"
-          },
-          "selfId": "F253C94D-F6D2-4304-90B8-4299CE76FCF8"
-        }, {
-          "componentName": "Text",
-          "id": "5626a933-c1bf-11ea-a223-fdc9bde79695",
-          "rect": {
-            "x": 122,
-            "y": 388,
-            "width": 122,
-            "height": 22
-          },
-          "smart": {},
-          "props": {
-            "style": {
-              "opacity": 1,
-              "maxWidth": "153px",
-              "height": "22px",
-              "overflow": "hidden",
-              "textOverflow": "ellipsis",
-              "lineHeight": "22px",
-              "letterSpacing": "0.19px",
-              "whiteSpace": "pre",
-              "color": "#22242a",
-              "fontSize": "16px",
-              "fontWeight": 400
-            },
-            "text": "Brian Rodriguez",
-            "lines": 1,
-            "className": "brianRodriguez"
-          },
-          "selfId": "EE0D23B2-B3D3-41A0-93DF-349B3AADFC860"
-        }]
+        "selfId": "0793E9A8-E59A-4FE1-8FF9-BA988A20A2E4"
       }, {
         "componentName": "Text",
-        "id": "5626a932-c1bf-11ea-a223-fdc9bde79695",
+        "id": "088373a1-c58b-11ea-bb0e-cd26632cf206",
         "rect": {
-          "x": 314,
-          "y": 390,
-          "width": 69,
-          "height": 19
+          "x": 122,
+          "y": 470,
+          "width": 122,
+          "height": 22
         },
         "smart": {},
         "props": {
           "style": {
             "opacity": 1,
-            "lineHeight": "19px",
+            "maxWidth": "153px",
+            "height": "22px",
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "lineHeight": "22px",
             "letterSpacing": "0.19px",
-            "whiteSpace": "nowrap",
+            "whiteSpace": "pre",
             "color": "#22242a",
-            "fontFamily": "DINAlternate-Bold, DIN Alternate",
             "fontSize": "16px",
-            "fontWeight": "bold"
+            "fontWeight": 400
           },
-          "text": "¥1678,89",
+          "text": "Brian Rodriguez",
           "lines": 1,
-          "className": "price"
+          "className": "brianRodriguez_2"
         },
-        "selfId": "0F418F09-B3D7-4EC9-8D37-462D9A9B82C10"
+        "selfId": "E67F4866-284E-4F5E-9095-66750CD2499C0"
       }]
     }, {
-      "componentName": "van-cell",
-      "id": "769b0b50-2ddf-4e1c-ad6c-1b1fb5df1f17",
+      "componentName": "Text",
+      "id": "088373a0-c58b-11ea-bb0e-cd26632cf206",
       "rect": {
-        "x": 20,
-        "y": 451,
-        "width": 374,
-        "height": 60
+        "x": 314,
+        "y": 472,
+        "width": 69,
+        "height": 19
       },
-      "smart": {
-        "layerProtocol": {
-          "component": {
-            "type": "van-cell",
-            "params": {
-              "title": "01"
-            }
-          },
-          "repeat": {
-            "type": "repeat",
-            "repeatId": "577879",
-            "repeatIndex": "1"
-          }
-        }
-      },
+      "smart": {},
       "props": {
         "style": {
-          "boxSizing": "border-box",
-          "boxShadow": "0px 10px 30px rgba(244, 225, 213, 1.00)",
-          "display": "flex",
-          "position": "relative",
-          "alignItems": "center",
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "marginTop": "22px",
-          "borderRadius": "20px",
-          "backgroundColor": "#ffffff",
-          "paddingRight": "11px",
-          "paddingLeft": "16px",
-          "width": "374px",
-          "height": "60px"
+          "opacity": 1,
+          "lineHeight": "19px",
+          "letterSpacing": "0.19px",
+          "whiteSpace": "nowrap",
+          "color": "#22242a",
+          "fontFamily": "DINAlternate-Bold, DIN Alternate",
+          "fontSize": "16px",
+          "fontWeight": "bold"
         },
-        "title": "01",
-        "className": "row2"
+        "text": "¥1678,89",
+        "lines": 1,
+        "className": "money"
       },
-      "selfId": "373C8131-8FF0-4161-98CC-017C579F5F83",
-      "children": [{
-        "componentName": "Div",
-        "id": "da4de8ba-7271-4847-a63a-89e80c33304b",
-        "rect": {
-          "x": 36,
-          "y": 461,
-          "width": 208,
-          "height": 40
-        },
-        "smart": {},
-        "props": {
-          "style": {
-            "display": "flex",
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": "40px"
-          },
-          "className": "container_2"
-        },
-        "children": [{
-          "componentName": "Image",
-          "id": "56268220-c1bf-11ea-a223-fdc9bde79695",
-          "rect": {
-            "x": 36,
-            "y": 466,
-            "width": 30,
-            "height": 30
-          },
-          "smart": {},
-          "props": {
-            "style": {
-              "marginRight": "6px",
-              "width": "30px",
-              "height": "30px"
-            },
-            "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/52212680c1bf11ea8c3c31a19300e71c.png",
-            "className": "icon_6"
-          },
-          "selfId": "60FBC35B-9B73-4178-A23E-7812BF48F39D"
-        }, {
-          "componentName": "Image",
-          "id": "56268223-c1bf-11ea-a223-fdc9bde79695",
-          "rect": {
-            "x": 72,
-            "y": 461,
-            "width": 40,
-            "height": 40
-          },
-          "smart": {},
-          "props": {
-            "style": {
-              "marginRight": "10px",
-              "width": "40px",
-              "height": "40px",
-              "overflow": "hidden"
-            },
-            "src": "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/51f7cc90c1bf11eaa2349b1fb7c7c18e.png",
-            "className": "icon_7"
-          },
-          "selfId": "DB6F77E6-A176-40AA-A923-E00CCA3B3923"
-        }, {
-          "componentName": "Text",
-          "id": "56268222-c1bf-11ea-a223-fdc9bde79695",
-          "rect": {
-            "x": 122,
-            "y": 470,
-            "width": 122,
-            "height": 22
-          },
-          "smart": {},
-          "props": {
-            "style": {
-              "opacity": 1,
-              "maxWidth": "153px",
-              "height": "22px",
-              "overflow": "hidden",
-              "textOverflow": "ellipsis",
-              "lineHeight": "22px",
-              "letterSpacing": "0.19px",
-              "whiteSpace": "pre",
-              "color": "#22242a",
-              "fontSize": "16px",
-              "fontWeight": 400
-            },
-            "text": "Brian Rodriguez",
-            "lines": 1,
-            "className": "brianRodriguez_2"
-          },
-          "selfId": "B6B9DD0B-E85F-4C32-AFBE-2E38D1F384EF0"
-        }]
-      }, {
-        "componentName": "Text",
-        "id": "56268221-c1bf-11ea-a223-fdc9bde79695",
-        "rect": {
-          "x": 314,
-          "y": 472,
-          "width": 69,
-          "height": 19
-        },
-        "smart": {},
-        "props": {
-          "style": {
-            "opacity": 1,
-            "lineHeight": "19px",
-            "letterSpacing": "0.19px",
-            "whiteSpace": "nowrap",
-            "color": "#22242a",
-            "fontFamily": "DINAlternate-Bold, DIN Alternate",
-            "fontSize": "16px",
-            "fontWeight": "bold"
-          },
-          "text": "¥1678,89",
-          "lines": 1,
-          "className": "money"
-        },
-        "selfId": "702E2184-9ECB-4F7D-A3AF-6799314C16D70"
-      }]
+      "selfId": "C758BD54-AE71-49C7-B6CF-85A097F8727F0"
     }]
   }],
   "fileName": "index",

@@ -7,19 +7,21 @@ const prettier = require('prettier');
 const { NodeVM } = require('vm2');
 const _ = require('lodash');
 const data = require('./data');
+const nut = require('../src/index.js')
 
-const vm = new NodeVM({
-  console: 'inherit',
-  sandbox: {}
-});
+// const vm = new NodeVM({
+//   console: 'inherit',
+//   sandbox: {}
+// });
 
-co(function*() {
-  const xtplRender = thunkify(xtpl.render);
-  const code = fs.readFileSync(
-    path.resolve(__dirname, '../src/index.js'),
-    'utf8'
-  );
-  const renderInfo = vm.run(code)(data, {
+// co(function*() {
+  // const xtplRender = thunkify(xtpl.render);
+  // const code = fs.readFileSync(
+  //   path.resolve(__dirname, '../src/index.js'),
+  //   'utf8'
+  // );
+
+  const renderInfo = nut(data, {
     prettier: prettier,
     _: _,
     responsive: {
@@ -39,7 +41,7 @@ co(function*() {
     });
   } else {
     const renderData = renderInfo.renderData;
-    const ret = yield xtplRender(
+    const ret = xtplRender(
       path.resolve(__dirname, '../src/template.xtpl'),
       renderData,
       {}
@@ -55,4 +57,4 @@ co(function*() {
 
     fs.writeFileSync(path.join(__dirname,'../code/result.vue'), prettierRes);
   }
-});
+// });

@@ -115,6 +115,25 @@ module.exports = function(schema, option) {
     };
   }
 
+  const parseNutProps = (value)=>{
+    let retValue = '';
+    switch (typeof value){
+      case 'string':
+        retValue = `"String('${value}')"`;
+        break;
+      case 'boolean':
+        retValue = `"Boolean(${value})"`;
+        break;
+      case 'number':
+        retValue = `"Number(${value})"`;
+        break;
+      default:
+        retValue = `"${value}"`;
+        break
+    }
+    return retValue;
+  }
+
   // parse layer props(static values or expression)
   const parseProps = (value, isReactNode, constantName) => {
     if (typeof value === 'string') {
@@ -272,7 +291,11 @@ module.exports = function(schema, option) {
 
     Object.keys(schema.props).forEach((key) => {
       if (['className', 'style', 'text', 'src'].indexOf(key) === -1) {
-        props += ` ${parsePropsKey(key, schema.props[key])}=${parseProps(schema.props[key])}`;
+        if (type.indexOf("nut-") == 0){
+          props += ` ${parsePropsKey(key, schema.props[key])}=${parseNutProps(schema.props[key])}`;
+        }else{
+          props += ` ${parsePropsKey(key, schema.props[key])}=${parseProps(schema.props[key])}`;
+        }      
       }
     })
     switch(type) {
@@ -301,9 +324,9 @@ module.exports = function(schema, option) {
         break;
       default:
         if (schema.children && schema.children.length) {
-          xml = `<div${classString}${props}>${transform(schema.children)}</div>`;
+          xml = `<${type}${props}>${transform(schema.children)}</${type}>`;
         } else {
-          xml = `<div${classString}${props} />`;
+          xml = `<${type}${props} />`;
         }
     }
 
@@ -410,6 +433,12 @@ module.exports = function(schema, option) {
               ${template}
           </template>
           <script>
+            import Vue from "vue";
+            import { TabPanel,Tab,Button } from "@nutui/nutui";
+            TabPanel.install(Vue);
+            Tab.install(Vue);
+            Button.install(Vue);
+
             ${imports.join('\n')}
             export default {
               data() {
